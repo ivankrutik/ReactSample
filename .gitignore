@@ -2,6 +2,12 @@
 #Ignore thumbnails created by Windows
 Thumbs.db
 #Ignore files built by Visual Studio
+
+# dependencies
+06-create-react-app/node_modules
+06-create-react-app/.pnp
+06-create-react-app/*.pnp.js
+
 *.obj
 *.exe
 *.pdb
