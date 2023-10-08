@@ -14,22 +14,22 @@ const SiteHeader = () => {
           {'  '}
           My internet shop
         </p>
-        <div class="list-group list-group-horizontal">
+        <div className="list-group list-group-horizontal">
           <a
             href="/products"
-            class="list-group-item list-group-item-action text-light bg-dark"
+            className="list-group-item list-group-item-action text-light bg-dark"
           >
             Товары
           </a>
           <a
             href="/basket"
-            class="list-group-item list-group-item-action text-light bg-dark"
+            className="list-group-item list-group-item-action text-light bg-dark"
           >
             Корзина
           </a>
           <a
             href="/about"
-            class="list-group-item list-group-item-action text-light bg-dark"
+            className="list-group-item list-group-item-action text-light bg-dark"
           >
             О нас
           </a>
