@@ -1,6 +1,7 @@
 .bodyContainer {
   background: url('../public/images/fon-31.jpg');
   height: 100vh;
+  height: 100%;
   width: 100%;
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const SiteHeader = () => {
   return (
@@ -14,29 +15,29 @@ const SiteHeader = () => {
           {'  '}
           My internet shop
         </p>
-        <div className="list-group list-group-horizontal">
-          <a
-            href="/products"
+        <div className="list-group list-group-horizontal px-3">
+          <NavLink
             className="list-group-item list-group-item-action text-light bg-dark"
+            to="."
+            end
           >
             Товары
-          </a>
-          <a
-            href="/basket"
+          </NavLink>
+          <NavLink
             className="list-group-item list-group-item-action text-light bg-dark"
+            to="basket"
+            end
           >
             Корзина
-          </a>
-          <a
-            href="/about"
+          </NavLink>
+          <NavLink
             className="list-group-item list-group-item-action text-light bg-dark"
+            to="about"
           >
             О нас
-          </a>
+          </NavLink>
         </div>
       </div>
-
-      <div className="presentation"></div>
     </header>
   )
 }
