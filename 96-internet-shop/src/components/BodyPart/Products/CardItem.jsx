@@ -23,7 +23,7 @@ const CardItem = ({
           <b className="text-light bg-dark">
             {defaultDisplayedPriceFormatted} {'   '}
           </b>
-          <Link className="btn btn-primary" to="details">
+          <Link className="btn btn-primary" to={`details/${id}`}>
             Подробно
           </Link>
         </div>
