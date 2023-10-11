@@ -13,3 +13,33 @@
 .divCard {
   width: 18rem;
 }
+
+.shopp-cart-button {
+  float: right;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+  width: 90%;
+  height: 80%;
+  color: white;
+}
+
+.shopp-cart-button :hover,
+.shopp-cart-button.active {
+  color: #dc3d3d;
+  transform: scale(1.1);
+}
+
+.shopp-cart {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 450px;
+  min-height: 100px;
+  background: white;
+  box-shadow: 4px 5px 15px -7px #606060;
+  z-index: 1000;
+}
+
+.link_header {
+  width: 100px;
+}

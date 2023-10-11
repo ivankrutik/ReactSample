@@ -1,17 +1,19 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useEffect, useState, useContext } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import OrdersContext from '../../../context/OrdersContext'
 
 const API_URL = 'https://app.ecwid.com/api/v3/58958138/products?productId='
 const TOKEN = 'public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD'
 
 const DetailItem = () => {
   const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
   const [post, setPost] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
+
+  const { orders, addToOrder } = useContext(OrdersContext)
 
   const params = useParams()
-  const navigate = useNavigate()
 
   function getDetailDataFromServer() {
     fetch(`${API_URL}${params.id}`, {
@@ -35,6 +37,10 @@ const DetailItem = () => {
     getDetailDataFromServer()
   }, [])
 
+  function buyClickHandler() {
+    addToOrder({ id: post.id })
+  }
+
   if (error) {
     return <h1>Error: {error}</h1>
   }
@@ -46,31 +52,27 @@ const DetailItem = () => {
   return (
     <div className="container text-center">
       <div className="row align-items-start">
-        <div className="col">
-          <div className="p-3">
-            <img src={post.imageUrl} className="w-100" alt="detail image" />
-          </div>
+        <div className="col p-3">
+          <img src={post.imageUrl} className="w-100" alt="detail image" />
         </div>
-        <div className="col">
-          <div className="p-3">
-            <h4 className="card-title text-light bg-dark">{post.name}</h4>
-            <br />
-            <div
-              className="text-light bg-dark"
-              dangerouslySetInnerHTML={{ __html: post.description }}
-            />
-            <h5 className="text-light bg-dark">
-              {post.defaultDisplayedPriceFormatted}{' '}
-            </h5>
-            <div className="row align-items-start">
-              <div className="col">
-                <Link className="btn btn-primary w-50" to="../..">
-                  Назад
-                </Link>
-              </div>
-              <div className="col">
-                <button className="btn btn-primary w-50">В корзину</button>
-              </div>
+        <div className="col p-3 text-light bg-dark">
+          <h4 className="card-title ">{post.name}</h4>
+          <br />
+          <div dangerouslySetInnerHTML={{ __html: post.description }} />
+          <h5>{post.defaultDisplayedPriceFormatted} </h5>
+          <div className="row align-items-start">
+            <div className="col">
+              <Link className="btn btn-primary w-50" to="../..">
+                Назад
+              </Link>
+            </div>
+            <div className="col">
+              <button
+                className="btn btn-primary w-50"
+                onClick={buyClickHandler}
+              >
+                В корзину
+              </button>
             </div>
           </div>
         </div>

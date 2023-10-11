@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import CardItem from './CardItem'
 const API_URL =
-  'https://app.ecwid.com/api/v3/58958138/products?limit=3&responseFields=items(created,id,defaultDisplayedPrice,defaultDisplayedPriceFormatted,description,smallThumbnailUrl,name)'
+  'https://app.ecwid.com/api/v3/58958138/products?limit=9&responseFields=items(created,id,defaultDisplayedPrice,defaultDisplayedPriceFormatted,description,smallThumbnailUrl,name)'
 const TOKEN = 'public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD'
 
 const Products = () => {

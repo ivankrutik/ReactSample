@@ -11,7 +11,7 @@ const CardItem = ({
   name,
 }) => {
   return (
-    <div className="col my-auto">
+    <div className="col my-auto p-3">
       <div className=" card divCard bg-dark">
         <img
           src={smallThumbnailUrl}
@@ -33,8 +33,3 @@ const CardItem = ({
 }
 
 export default CardItem
-
-/*<div
-          className="text-light bg-dark"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />*/
