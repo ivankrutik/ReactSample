@@ -42,17 +42,22 @@
       crossorigin="anonymous"
     ></script>
     <style>
-      .rounded-image {
-        width: 60%;
-        border-radius: 50px;
-        box-shadow: 0 0 10px black;
-        padding: 0.6em;
-        margin-bottom: 1em;
+      .card {
+        border-radius: 1em;
+        text-align: center;
+        padding: 0.2em;
+      }
+      .card:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      .card img {
+        border-radius: 1em;
+        margin: auto;
       }
     </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ivan Krutikhin</title>
+    <title>My favorite places</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -75,41 +80,65 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="/"
+              <a class="nav-link" href="/"
                 >Home <span class="sr-only">(current)</span></a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="places.html">FavoritePlaces</a>
+              <a class="nav-link active" href="places.html">FavoritePlaces</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="container text-center my-5">
-      <div class="row">
-        <div class="col-lg-6 mx-auto">
-          <img class="rounded-image" src="images/IMG_8094.jpg" alt="I" />
-          <h1 class="fw-light">Photo</h1>
-          <p class="lead text-muted">
-            I am stuided to develop software development. In this HTML course I
-            will build my personal Website.
-          </p>
-          <a
-            href="https://vk.com/id29335229"
-            class="btn btn-primary"
-            target="_blank"
-          >
-            My WebSite
-          </a>
-          <a
-            href="https://vk.com/id29335229"
-            class="btn btn-secondary"
-            target="_blank"
-          >
-            My WebSite 2
-          </a>
+    <div class="container my-5">
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-5">
+        <div class="col">
+          <div class="card">
+            <img src="images/Sea.jpg" class="card-img-top" alt="image place" />
+            <div class="card-body">
+              <h5 class="card-title">Черное море</h5>
+              <p class="card-text">
+                Море, что может быть лучше. Песчаный пляж и летнее солнце. Я
+                люблю там отдыхать дикарем, один на своем личном автотранспорте.
+                Здорово было в Крыму в 2022.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img
+              src="images/Iremel.jpg"
+              class="card-img-top"
+              alt="image place"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Гора Иремель</h5>
+              <p class="card-text">
+                Вторая по высоте вершина южного Урала. На нее я взбирался
+                дважды, очень красиво и живописно.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img src="images/Kama.jpg" class="card-img-top" alt="image place" />
+            <div class="card-body">
+              <h5 class="card-title">Река Кама</h5>
+              <p class="card-text">
+                Самая большая река приуралья. Есть рыба, но это не точно. На
+                этой реке я катаюсь на лодке.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
