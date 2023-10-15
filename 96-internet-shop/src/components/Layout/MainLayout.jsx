@@ -1,14 +1,12 @@
 import { Outlet } from 'react-router-dom'
 import SiteHeader from './SiteHeader'
-import Footer from './Footer'
-
-//<Menu></Menu>
+import Footer from '../BodyPart/Footer'
 
 const MainLayout = () => {
   return (
     <>
       <SiteHeader></SiteHeader>
-      <div className="container-fluid bodyContainer">
+      <div className="container text-center my-1">
         <Outlet />
         <div className="d-flex justify-content-end">
           <Footer className="float-right"></Footer>

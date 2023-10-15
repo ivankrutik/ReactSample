@@ -55,20 +55,36 @@ const DetailItem = () => {
         <div className="col p-3">
           <img src={post.imageUrl} className="w-100" alt="detail image" />
         </div>
-        <div className="col p-3 text-light bg-dark">
+        <div className="col text-light bg-dark">
           <h4 className="card-title ">{post.name}</h4>
           <br />
           <div dangerouslySetInnerHTML={{ __html: post.description }} />
           <h5>{post.defaultDisplayedPriceFormatted} </h5>
           <div className="row align-items-start">
             <div className="col">
-              <Link className="btn btn-primary w-50" to="../..">
+              <Link className="btn btn-secondary w-40" to="../..">
                 Назад
               </Link>
             </div>
             <div className="col">
+              <div className="form-outline w-20">
+                <input
+                  defaultValue="1"
+                  min="1"
+                  max="20"
+                  type="number"
+                  id="typeNumber"
+                  className="form-control"
+                />
+                <label className="form-label" htmlFor="typeNumber">
+                  Количество товара
+                </label>
+              </div>
+            </div>
+
+            <div className="col">
               <button
-                className="btn btn-primary w-50"
+                className="btn btn-primary w-40"
                 onClick={buyClickHandler}
               >
                 В корзину

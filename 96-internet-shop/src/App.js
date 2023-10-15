@@ -3,7 +3,7 @@ import { useState } from 'react'
 import UserContext from './context/OrdersContext'
 import './index.css'
 import Products from './components/BodyPart/Products/Products'
-import MainLayout from './components/MainLayout'
+import MainLayout from './components/Layout/MainLayout'
 import Basket from './components/BodyPart/Basket'
 import About from './components/BodyPart/About'
 import NotFound from './components/BodyPart/NotFound'
@@ -13,6 +13,7 @@ function App() {
   let [orders, setOrders] = useState([])
 
   function addToOrder(order) {
+    console.log(order)
     setOrders([...orders, order])
     console.log(orders)
   }

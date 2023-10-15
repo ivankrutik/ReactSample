@@ -52,7 +52,7 @@ const Products = () => {
   }
 
   return (
-    <div className="row justify-content-centr ">
+    <div className="row justify-content-centr row-cols-2 row-cols-md-3 row-cols-lg-4  ">
       {posts.map((post) => {
         return <CardItem key={post.id} {...post}></CardItem>
       })}
