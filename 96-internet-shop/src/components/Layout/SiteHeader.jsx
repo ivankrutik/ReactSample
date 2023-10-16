@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import OrdersContext from '../../context/OrdersContext'
 import { NavLink } from 'react-router-dom'
 import { FaShoppingCart } from 'react-icons/fa'
+import Order from '../BodyPart/Products/Order'
 
 const SiteHeader = () => {
   let [cartOpen, setCartOpen] = useState(false)
+  const { orders, addToOrder, delInOrder } = useContext(OrdersContext)
 
   return (
     <header>
@@ -35,7 +38,17 @@ const SiteHeader = () => {
                 }}
               ></FaShoppingCart>
               {cartOpen && (
-                <div className="shopp-cart text-light bg-dark"></div>
+                <div className="shopp-cart text-light bg-dark p-1 border">
+                  {orders.length === 0 && (
+                    <h5 className="empty">
+                      Товаров нет, порадуйте себя покупкой ;)
+                    </h5>
+                  )}
+
+                  {orders.map((order) => {
+                    return <Order key={order.id} {...order}></Order>
+                  })}
+                </div>
               )}
             </div>
 

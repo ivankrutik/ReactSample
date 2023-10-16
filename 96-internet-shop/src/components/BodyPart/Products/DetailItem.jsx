@@ -9,6 +9,7 @@ const TOKEN = 'public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD'
 const DetailItem = () => {
   const [error, setError] = useState('')
   const [post, setPost] = useState({})
+  const [count, setCount] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
 
   const { orders, addToOrder } = useContext(OrdersContext)
@@ -37,8 +38,18 @@ const DetailItem = () => {
     getDetailDataFromServer()
   }, [])
 
+  function HandleInputChange(text) {
+    setCount(text)
+  }
+
   function buyClickHandler() {
-    addToOrder({ id: post.id })
+    addToOrder({
+      id: post.id,
+      count: count,
+      smallThumbnailUrl: post.smallThumbnailUrl,
+      name: post.name,
+      totalPrice: count * post.defaultDisplayedPrice,
+    })
   }
 
   if (error) {
@@ -51,8 +62,8 @@ const DetailItem = () => {
 
   return (
     <div className="container text-center">
-      <div className="row align-items-start">
-        <div className="col p-3">
+      <div className="row align-items-start p-3">
+        <div className="col">
           <img src={post.imageUrl} className="w-100" alt="detail image" />
         </div>
         <div className="col text-light bg-dark">
@@ -75,6 +86,7 @@ const DetailItem = () => {
                   type="number"
                   id="typeNumber"
                   className="form-control"
+                  onChange={(e) => HandleInputChange(e.target.value)}
                 />
                 <label className="form-label" htmlFor="typeNumber">
                   Количество товара

@@ -6,7 +6,7 @@ const MainLayout = () => {
   return (
     <>
       <SiteHeader></SiteHeader>
-      <div className="container text-center my-1">
+      <div className="container text-center my-2">
         <Outlet />
         <div className="d-flex justify-content-end">
           <Footer className="float-right"></Footer>

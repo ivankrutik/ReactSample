@@ -9,7 +9,7 @@ const CardItem = ({
 }) => {
   return (
     <div className="col my-auto p-3">
-      <div className=" card divCard bg-dark">
+      <div className="card bg-dark">
         <img
           src={smallThumbnailUrl}
           className="card-img-top"

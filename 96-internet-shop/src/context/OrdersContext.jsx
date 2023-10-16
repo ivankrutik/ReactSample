@@ -1,8 +1,11 @@
 import { createContext } from 'react'
 
 const OrdersContext = createContext({
-  orders: [],
+  orders: [
+    { id: '', count: '', smallThumbnailUrl: '', name: '', totalPrice: '' },
+  ],
   addToOrder: () => {},
+  delInOrder: () => {},
 })
 
 export default OrdersContext
