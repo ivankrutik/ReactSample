@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer className="text-light">
-      Все права защищены &copy; Но это неточно :)
+      Все права защищены &copy; Любые совпадения случайны :)
     </footer>
   )
 }

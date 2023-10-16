@@ -9,10 +9,9 @@ const TOKEN = 'public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD'
 const DetailItem = () => {
   const [error, setError] = useState('')
   const [post, setPost] = useState({})
-  const [count, setCount] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
 
-  const { orders, addToOrder } = useContext(OrdersContext)
+  const { addToOrder } = useContext(OrdersContext)
 
   const params = useParams()
 
@@ -38,17 +37,13 @@ const DetailItem = () => {
     getDetailDataFromServer()
   }, [])
 
-  function HandleInputChange(text) {
-    setCount(text)
-  }
-
   function buyClickHandler() {
     addToOrder({
       id: post.id,
-      count: count,
       smallThumbnailUrl: post.smallThumbnailUrl,
       name: post.name,
-      totalPrice: count * post.defaultDisplayedPrice,
+      defaultDisplayedPriceFormatted: post.defaultDisplayedPriceFormatted,
+      defaultDisplayedPrice: post.defaultDisplayedPrice,
     })
   }
 
@@ -70,14 +65,21 @@ const DetailItem = () => {
           <h4 className="card-title ">{post.name}</h4>
           <br />
           <div dangerouslySetInnerHTML={{ __html: post.description }} />
-          <h5>{post.defaultDisplayedPriceFormatted} </h5>
-          <div className="row align-items-start">
-            <div className="col">
-              <Link className="btn btn-secondary w-40" to="../..">
-                Назад
+          <h4>{post.defaultDisplayedPriceFormatted} </h4>
+          <div className="row align-items-center">
+            <div className="col p-1">
+              <Link className="btn btn-secondary" to="../..">
+                Вернуться к товарам
               </Link>
             </div>
-            <div className="col">
+            <div className="col p-1">
+              <button className="btn btn-primary" onClick={buyClickHandler}>
+                Добавить в корзину
+              </button>
+            </div>
+          </div>
+
+          {/* <div className="col">
               <div className="form-outline w-20">
                 <input
                   defaultValue="1"
@@ -92,17 +94,7 @@ const DetailItem = () => {
                   Количество товара
                 </label>
               </div>
-            </div>
-
-            <div className="col">
-              <button
-                className="btn btn-primary w-40"
-                onClick={buyClickHandler}
-              >
-                В корзину
-              </button>
-            </div>
-          </div>
+            </div> */}
         </div>
       </div>
     </div>

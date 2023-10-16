@@ -10,8 +10,14 @@
   height: 50px;
 }
 
+.del-cart-button {
+  width: 50%;
+  height: 50%;
+  cursor: pointer;
+}
+
 .shopp-cart-button {
-  float: right;
+  float: left;
   cursor: pointer;
   transition: color, transform 500ms ease;
   width: 100%;

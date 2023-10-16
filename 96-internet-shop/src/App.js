@@ -69,17 +69,23 @@ function App() {
   }
 
   function addToOrder(order) {
-    console.log(order)
-    setOrders([...orders, order])
+    let isInArr = false
+    orders.forEach((el) => {
+      if (el.id === order.id) {
+        isInArr = true
+      }
+    })
+    if (!isInArr) {
+      setOrders([...orders, order])
+    }
+    console.log(orders)
   }
-  function delInOrder(order) {
-    console.log(order)
-    setOrders(orders.filter((_, id) => id !== id))
+  function delInOrder(orderId) {
+    setOrders(orders.filter((el) => el.id !== orderId))
   }
 
   function chooseCategories(categorieId) {
     getDataFromServer(categorieId)
-    console.log(categorieId)
   }
 
   return (

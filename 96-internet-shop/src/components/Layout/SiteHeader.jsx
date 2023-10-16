@@ -6,7 +6,9 @@ import Order from '../BodyPart/Products/Order'
 
 const SiteHeader = () => {
   let [cartOpen, setCartOpen] = useState(false)
-  const { orders, addToOrder, delInOrder } = useContext(OrdersContext)
+  const { orders } = useContext(OrdersContext)
+  let summa = 0
+  orders.forEach((el) => (summa += Number.parseFloat(el.defaultDisplayedPrice)))
 
   return (
     <header>
@@ -44,21 +46,34 @@ const SiteHeader = () => {
                       Товаров нет, порадуйте себя покупкой ;)
                     </h5>
                   )}
-
                   {orders.map((order) => {
                     return <Order key={order.id} {...order}></Order>
                   })}
+                  {orders.length !== 0 && (
+                    <div className="container">
+                      <div className="row">
+                        <div className="col p-2">
+                          <b className="summa">Сумма: {summa}</b>
+                        </div>
+                        <div className="col p-2">
+                          <NavLink
+                            onClick={() => {
+                              setCartOpen((cartOpen = !cartOpen))
+                            }}
+                            className="btn btn-primary w-100"
+                            to="basket"
+                            end
+                          >
+                            Оформить заказ
+                          </NavLink>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
 
-            <NavLink
-              className="list-group-item  text-light bg-dark "
-              to="basket"
-              end
-            >
-              Корзина
-            </NavLink>
             <NavLink
               className="list-group-item  text-light bg-dark "
               to="about"

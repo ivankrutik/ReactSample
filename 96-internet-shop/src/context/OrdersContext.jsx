@@ -2,7 +2,13 @@ import { createContext } from 'react'
 
 const OrdersContext = createContext({
   orders: [
-    { id: '', count: '', smallThumbnailUrl: '', name: '', totalPrice: '' },
+    {
+      id: '',
+      smallThumbnailUrl: '',
+      name: '',
+      defaultDisplayedPriceFormatted: '',
+      defaultDisplayedPrice: '',
+    },
   ],
   addToOrder: () => {},
   delInOrder: () => {},
