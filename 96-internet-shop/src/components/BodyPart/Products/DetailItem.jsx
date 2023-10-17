@@ -78,23 +78,6 @@ const DetailItem = () => {
               </button>
             </div>
           </div>
-
-          {/* <div className="col">
-              <div className="form-outline w-20">
-                <input
-                  defaultValue="1"
-                  min="1"
-                  max="20"
-                  type="number"
-                  id="typeNumber"
-                  className="form-control"
-                  onChange={(e) => HandleInputChange(e.target.value)}
-                />
-                <label className="form-label" htmlFor="typeNumber">
-                  Количество товара
-                </label>
-              </div>
-            </div> */}
         </div>
       </div>
     </div>

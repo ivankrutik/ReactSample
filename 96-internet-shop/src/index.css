@@ -63,7 +63,6 @@
   display: inline-block;
   border-radius: 50px;
   padding: 10px 20px;
-  margin-bottom: 25px;
   margin-right: 15px;
   cursor: pointer;
   border: 1px solid transparent;
@@ -73,4 +72,9 @@
 .categories div:hover {
   border-color: white;
   transform: scale(1.1);
+}
+
+.page-num {
+  width: 5rem;
+  display: inline-block;
 }
