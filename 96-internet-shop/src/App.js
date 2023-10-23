@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import UserContext from './context/OrdersContext'
 import './index.css'
 import Products from './components/BodyPart/Products/Products'
+import IsBusy from './components/Layout/IsBusy'
 import MainLayout from './components/Layout/MainLayout'
 import Pagination from './components/Layout/Pagination'
 import Basket from './components/BodyPart/Basket'
@@ -38,10 +39,7 @@ function App() {
     if (categoryId != '-1') {
       apiUrl = apiUrl + '&categories=' + categoryId
     }
-
-    console.log(currentPage * perPage)
     apiUrl = apiUrl + '&offset=' + (currentPage - 1) * perPage
-
     apiUrl = apiUrl + '&limit=' + perPage
 
     fetch(apiUrl, {
@@ -67,6 +65,10 @@ function App() {
 
   if (error) {
     return <h1>Error: {error}</h1>
+  }
+
+  if (isLoading) {
+    return <IsBusy></IsBusy>
   }
 
   if (products.length === 0) {

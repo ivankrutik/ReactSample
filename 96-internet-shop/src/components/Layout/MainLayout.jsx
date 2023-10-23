@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom'
 import SiteHeader from './SiteHeader'
-import Footer from '../BodyPart/Footer'
 
 const MainLayout = () => {
   return (

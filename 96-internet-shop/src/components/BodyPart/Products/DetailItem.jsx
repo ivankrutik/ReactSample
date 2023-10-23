@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState, useContext } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import OrdersContext from '../../../context/OrdersContext'
+import IsBusy from '../../Layout/IsBusy'
 
 const API_URL = 'https://app.ecwid.com/api/v3/58958138/products?productId='
 const TOKEN = 'public_7BxbJGWyDaZfSQqjVS5Ftr4jzXkS43UD'
@@ -44,7 +45,12 @@ const DetailItem = () => {
       name: post.name,
       defaultDisplayedPriceFormatted: post.defaultDisplayedPriceFormatted,
       defaultDisplayedPrice: post.defaultDisplayedPrice,
+      imageUrl: post.imageUrl,
     })
+  }
+
+  if (isLoading) {
+    return <IsBusy></IsBusy>
   }
 
   if (error) {

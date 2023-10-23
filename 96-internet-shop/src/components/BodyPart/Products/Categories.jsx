@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import IsBusy from '../../Layout/IsBusy'
 
 const API_CATEGORIES_URL =
   'https://app.ecwid.com/api/v3/58958138/categories?responseFields=items(id,orderBy,seoTitle,productCount)'
@@ -45,6 +46,10 @@ const Categories = ({ chooseCategories }) => {
 
   function chooseCategoriesHandler(categorieId) {
     chooseCategories(categorieId)
+  }
+
+  if (isLoading) {
+    return <IsBusy></IsBusy>
   }
 
   if (error) {

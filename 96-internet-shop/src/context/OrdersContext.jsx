@@ -8,6 +8,7 @@ const OrdersContext = createContext({
       name: '',
       defaultDisplayedPriceFormatted: '',
       defaultDisplayedPrice: '',
+      imageUrl: '',
     },
   ],
   addToOrder: () => {},

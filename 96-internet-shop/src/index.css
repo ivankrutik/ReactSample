@@ -78,3 +78,7 @@
   width: 5rem;
   display: inline-block;
 }
+
+.div-border-bott {
+  border-bottom: 1px solid;
+}
